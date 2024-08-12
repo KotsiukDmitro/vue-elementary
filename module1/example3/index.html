@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css" />
+    <title>Изучение VUE</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app3" v-cloak>
+        <div>
+            <h1>{{title}}</h1>
+            <!-- <h1 v-text="title"></h1>
+           <h2 v-once="title">{{title}}</h2>
+           <button @click="title='Другое название'">Изменить title </button>
+           <h2 v-pre="title">{{title}}</h2>
+           <div v-html="myHtml"></div> -->
+
+           <div>
+            <input type="text" @keyup.enter="addItem" ref="myInput" />
+           </div>
+
+            <ul v-if="items.length">
+                <li v-for="(item, index) in items"
+                @click.prevent="remove(index), log(item)"
+                :key="item"
+                >
+                    <strong>{{item}}</strong>&nbsp
+                    <input type="text" @click.stop/>
+                </li>
+
+                <!-- <li v-for="(value, key) in person">
+               <strong>{{key}}</strong>: {{value}}
+            </li> -->
+            </ul>
+            <h3 v-show="items.length === 0">Элементов нет</h3>
+            <!-- <h3 v-else>Элементов нет</h3> -->
+        </div>
+    </div>
+
+
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

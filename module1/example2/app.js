@@ -9,9 +9,9 @@ const App = {
         }
     },
     methods: {
-        inputChangeHandler(event) {
-            this.inputValue = event.target.value
-        },
+        // inputChangeHandler(event) {
+        //     this.inputValue = event.target.value
+        // },
         addNewNote() {
             if (this.inputValue !== '') {
                 this.notes.push(this.inputValue)
@@ -23,11 +23,24 @@ const App = {
         },
         deleteNote(index) {
             this.notes.splice(index, 1)
+        },
+
+    },
+    computed: {
+        doubleCountComputed() {
+            return this.notes.length * 2
+        }
+    },
+    watch: {
+        inputValue(value) {
+            if(this.inputValue.length > 10) {
+                this.inputValue = ''
+            }
         }
     }
 
 }
 
 
-Vue.createApp(App).mount('#app')
+Vue.createApp(App).mount('#app2')
 
