@@ -1,0 +1,56 @@
+.container {
+    margin: 100px auto;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.title {
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.btnStep {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btnStep:hover {
+background-color: rgb(190, 190, 214);
+}
+
+.btnStepSelected {
+    background-color: rgb(55, 171, 55);
+    color: white;
+}
+
+.btnPrev, .btnNext {
+    border-radius: 15px;
+    border: 1px solid rgb(55, 171, 55);
+    outline: none;
+    padding: 5px;
+    width: 70px;
+    cursor: pointer;
+}
+
+.btnPrev {
+    color: rgb(55, 171, 55);
+    margin-right: 20px;
+    background-color: white;
+}
+
+.btnNext {
+    color: white;
+    background-color: rgb(55, 171, 55);
+}

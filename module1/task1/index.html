@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css" />
+    <title>TASK-1</title>
+</head>
+
+<body>
+
+    <div id="task1">
+        <div class="container">
+            <h1 class="title">{{title}}</h1>
+            <p class="content"></p>
+            <div class="steps">
+                <div class="step" v-for="(item) in items" :key="item.id">
+                    <button class="btnStep" @click="">{{item.id}}</button>
+                    <span class="nameStep">{{item.name}}</span>
+                </div>
+            </div>
+            <div class="footer">
+                <button class="btnPrev">назад</button>
+                <button class="btnNext">вперед</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
