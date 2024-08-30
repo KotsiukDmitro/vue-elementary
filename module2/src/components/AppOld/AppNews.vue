@@ -1,5 +1,6 @@
 <script>
-import CustomButton from './CutomButton.vue'
+import CustomButton from './CustomButton.vue'
+import AppNewsList from './AppNewsList.vue';
 
 export default {
   props: {
@@ -52,7 +53,7 @@ export default {
     //     this.$emit('unmark', this.id)
     // }
   },
-  components: { CustomButton }
+  components: { CustomButton, AppNewsList }
 }
 </script>
 
@@ -85,6 +86,7 @@ export default {
         v-if="!wasRead"
         color="border-green-500"
       >Читать статью</CustomButton>
+      <AppNewsList />
     </div>
   </div>
 </template>
