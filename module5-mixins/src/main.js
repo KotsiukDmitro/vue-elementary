@@ -2,5 +2,9 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+// import  alertMixin  from './components/alertMixin'
 
-createApp(App).mount('#app')
+
+createApp(App)
+// .mixin(alertMixin)
+.mount('#app')
