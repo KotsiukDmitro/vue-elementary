@@ -10,11 +10,21 @@ export default {
   methods: {
     login() {
       this.isAuth = true
-      this.$router.push('/dashboard')
+      if (this.$route.query.page) {
+        this.$router.push(this.$route.query.page)
+      } else {
+        this.$router.push('/dashboard')
+      }
     },
+
     logout() {
       this.isAuth = false
-      this.$router.push('/login')
+      this.$router.push({
+        path: '/login',
+        query: {
+          page: this.$route.path
+        }
+      })
     }
   },
   components: { TheNavbar },

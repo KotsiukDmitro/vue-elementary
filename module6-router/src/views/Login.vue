@@ -46,13 +46,13 @@ export default {
         Войти
       </button>
 
-      <RouterLink to="/forget">
+      <router-link to="/forget">
         <button
           class="border border-red-600 text-white bg-red-600 rounded-xl px-3 py-1 hover:bg-red-400 mr-5 mb-10"
         >
           Забыл пароль ?
         </button>
-      </RouterLink>
+      </router-link>
     </div>
   </form>
 </template>
