@@ -4,6 +4,7 @@ import CreateTask from '@/views/CreateTask.vue'
 import TemplateTask from '@/components/TemplateTask.vue'
 import ContentTask from '@/components/ContentTask.vue'
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -23,7 +24,7 @@ const router = createRouter({
       component: TemplateTask
     },
     {
-      path: '/task-content',
+      path: '/task-content/:id',
       name: 'task-content',
       component: ContentTask
     },

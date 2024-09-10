@@ -5,8 +5,8 @@ import Header from './views/TheHeader.vue'
 
 <template>
   <div>
-    <Header/>
-    <div class="h-screen bg-slate-400 pt-20">
+    <Header class="fixed w-full"/>
+    <div class="min-h-screen bg-slate-400 pt-20 pb-20">
       <RouterView />
     </div>
   </div>

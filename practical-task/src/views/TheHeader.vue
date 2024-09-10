@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white pl-20 py-3">
+  <div class="bg-blue-200 pl-20 py-3">
     <ul class="flex">
       <li class="mr-10"><RouterLink to="/" class="hover:underline hover:text-red-500">All tasks</RouterLink></li>
       <li><RouterLink to="/new-task" class="hover:underline hover:text-red-500">Create task</RouterLink></li>
