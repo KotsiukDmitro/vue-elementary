@@ -86,12 +86,7 @@ export default {
     }
 
     async function createTask() {
-      const response = await axios.post('https://list-tasks-731b7-default-rtdb.firebaseio.com/tasks.json', {
-          title: name.value,
-          date: date.value,
-          description: description.value,
-          status: status.value
-      })
+    
      
       // listTasks.push({
       //   title: name.value,
@@ -105,10 +100,16 @@ export default {
       // description.value = ''
 
       if (formIsValid()) {
+        const response = await axios.post('https://list-tasks-731b7-default-rtdb.firebaseio.com/tasks.json', {
+          title: name.value,
+          date: date.value,
+          description: description.value,
+          status: status.value
+      })
         alert('task added')
         navigate()
       }
-      
+      return
     }
    
 

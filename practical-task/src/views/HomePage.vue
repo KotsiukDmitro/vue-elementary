@@ -27,8 +27,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-[800px] m-auto">
+  <div v-if="tasks.length" class="w-[800px] m-auto">
     <h1 class="text-white font-bold text-3xl mb-10">Всего активных задач: {{ activeTasksNumber }}</h1>
     <TemplateTask v-for="task in tasks" :key="task.id" :task="task" />
   </div>
+  <div v-else class="w-[800px] m-auto">
+    <h1 class="text-white font-bold text-3xl mb-10 text-center">Пока задач нет</h1>
+  </div>
+
 </template>

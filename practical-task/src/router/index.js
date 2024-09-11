@@ -3,6 +3,7 @@ import HomePage from '../views/HomePage.vue'
 import CreateTask from '@/views/CreateTask.vue'
 import TemplateTask from '@/components/TemplateTask.vue'
 import ContentTask from '@/components/ContentTask.vue'
+import NotFound from '@/views/NotFound.vue'
 
 
 const router = createRouter({
@@ -28,6 +29,7 @@ const router = createRouter({
       name: 'task-content',
       component: ContentTask
     },
+    {path: '/:notFound(.*)', component: NotFound}
     
   ],
   linkActiveClass: 'nav-link--active',
