@@ -12,17 +12,26 @@
         <a href="#">Сообщения</a>
       </li>
       <li class="mr-5 hover:text-blue-600 hover:underline">
-        <RouterLink to="/">Выход</RouterLink>
+        <a href="#" @click.prevent="logout">Выход</a>
       </li>
     </ul>
   </nav>
 </template>
 
 <script setup>
-</script>
+import { useRouter } from 'vue-router';
+import { useAuthUserStore } from '@/stores/auth-module';
 
-<style lang="scss" scoped>
-</style>
+
+const router = useRouter()
+const store = useAuthUserStore()
+
+
+const logout = () => {
+  store.logout()
+  router.push('/auth')
+}
+</script>
 
 <style lang="postcss">
 .nav-link--active {

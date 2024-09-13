@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Help from '@/views/Help.vue'
 import Auth from '@/views/Auth.vue'
+import { useAuthUserStore } from '@/stores/auth-module'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +13,8 @@ const router = createRouter({
       name: 'home',
       component: Home,
       meta: {
-        layout: 'main'
+        layout: 'main',
+        auth: true
       }
     },
     {
@@ -19,7 +22,8 @@ const router = createRouter({
       name: 'help',
       component: Help,
       meta: {
-        layout: 'main'
+        layout: 'main',
+        auth: true
       }
     },
     {
@@ -27,12 +31,26 @@ const router = createRouter({
       name: 'auth',
       component: Auth,
       meta: {
-        layout: 'auth'
+        layout: 'auth',
+        auth: false
       }
     },
   ],
   linkActiveClass: 'nav-link--active',
   linkExactActiveClass: 'nav-link--active'
+})
+
+
+router.beforeEach((to, from, next) => {
+  const requireAuth = to.meta.auth
+  const store = useAuthUserStore()
+  if (requireAuth && store.isAuthenticated) {
+    next()
+  } else if (requireAuth && !store.isAuthenticated) {
+    next('/auth?massage=auth')
+  } else {
+    next()
+  }
 })
 
 export default router

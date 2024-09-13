@@ -7,7 +7,7 @@ import AuthLayout from './layout/AuthLayout.vue'
 
 export default {
   setup() {
-    const route = useRoute()
+    const route = useRoute() 
 
     return {
       layout: computed(() => route.meta.layout)
@@ -18,12 +18,7 @@ export default {
 </script>
 
 <template>
-  <!-- <main-layout></main-layout> -->
-  <auth-layout></auth-layout>
-
-    <!-- <component is:=" layout + '-layout'" v-if="layout"></component> -->
-
-
+    <component :is=" layout + '-layout'" v-if="layout"/>
 </template>
 
 
