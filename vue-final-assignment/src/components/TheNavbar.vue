@@ -6,7 +6,7 @@
         <RouterLink to="/">Заявки</RouterLink>
       </li>
       <li class="mr-5 hover:text-blue-600 hover:underline">
-        <RouterLink to="/">Помощь</RouterLink>
+        <RouterLink to="/help">Помощь</RouterLink>
       </li>
       <li class="mr-5 hover:text-blue-600 hover:underline">
         <a href="#">Сообщения</a>

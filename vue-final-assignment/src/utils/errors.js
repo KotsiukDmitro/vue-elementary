@@ -5,5 +5,5 @@ const ERROR_CODES = {
 
 
 export function errors(code) {
-return ERROR_CODES [code] ? ERROR_CODES [code] : 'неизвесная ошибка'
+    return ERROR_CODES[code] ? ERROR_CODES[code] : 'неизвесная ошибка'
 }
