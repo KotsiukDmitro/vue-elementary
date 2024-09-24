@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router';
 
 export function useLoginForm() {
 
-  const store = useAuthUserStore() 
+  const store = useAuthUserStore()
   const router = useRouter()
   const PASSWORD_MIN = 6
   const { handleSubmit, isSubmitting, submitCount } = useForm()
@@ -24,11 +24,7 @@ export function useLoginForm() {
     handleBlur: pBlur
   } = useField(
     'password',
-    yup
-      .string()
-      .trim()
-      .required('поле пароль обязательно')
-      .min(PASSWORD_MIN, `пароль не менее ${PASSWORD_MIN} символов`)
+    yup.string().trim().required('поле пароль обязательно').min(PASSWORD_MIN, `пароль не менее ${PASSWORD_MIN} символов`)
   )
 
   const isTooManyAttempts = computed(() => submitCount.value >= 3)
@@ -40,8 +36,9 @@ export function useLoginForm() {
   })
 
   const onSubmit = handleSubmit(async values => {
-    try {await store.login(values)
-    router.push('/')
+    try {
+      await store.login(values)
+      router.push('/')
     } catch (e) {
       return
     }

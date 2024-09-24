@@ -9,7 +9,7 @@
         id="name"
         :class="['border px-5 rounded-md outline-none', { 'border-red-500': fError }]"
       />
-      <small v-if="fError" class="absolute text-red-500">{{ fError }}</small>
+      <small v-if="fError" class="absolute -bottom-4 left-1 text-red-500">{{ fError }}</small>
     </div>
     <div class="flex flex-col mb-6 relative">
       <label for="phone" class="mb-1 ml-2 italic">Телефон</label>
@@ -52,15 +52,18 @@
   </form>
 </template>
 
+
+
 <script setup>
 import { useRequestForm } from '@/composable/request-form'
+import { useRequestStore } from '@/stores/request-module';
 
 const emit = defineEmits(['created'])
+const store = useRequestStore()
 
 const submit = async (values) => {
-    console.log(values);
-    emit('created')
-    
+  await store.create(values)
+    emit('created')   
 }
 
 const {
@@ -77,7 +80,5 @@ const {
   aBlur,
   aError
 } = useRequestForm(submit)
-</script>
 
-<style lang="scss" scoped>
-</style>
+</script>

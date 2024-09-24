@@ -26,9 +26,4 @@ function close() {
     store.clearMessage()
 }
 
-
 </script>
-
-<style lang="scss" scoped>
-
-</style>
