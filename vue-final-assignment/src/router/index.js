@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Help from '@/views/Help.vue'
 import Auth from '@/views/Auth.vue'
+import Request from '@/views/Request.vue'
 import { useAuthUserStore } from '@/stores/auth-module'
 
 
@@ -21,6 +22,15 @@ const router = createRouter({
       path: '/help',
       name: 'help',
       component: Help,
+      meta: {
+        layout: 'main',
+        auth: true
+      }
+    },
+    {
+      path: '/request/:id',
+      name: 'request',
+      component: Request,
       meta: {
         layout: 'main',
         auth: true

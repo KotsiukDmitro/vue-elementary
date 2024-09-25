@@ -1,16 +1,33 @@
 <script setup>
 import CustomPage from '@/components/ui/CustomPage.vue'
-import RequestTable from '@/components/request/RequestTable.vue'
 import CustomModal from '@/components/ui/CustomModal.vue'
+import RequestTable from '@/components/request/RequestTable.vue'
 import RequestModal from '@/components/request/RequestModal.vue'
+import RequestFilter from '@/components/request/RequestFilter.vue'
+import AppLoader from '@/components/ui/AppLoader.vue'
 import { ref, computed, onMounted } from 'vue'
 import { useRequestStore } from '@/stores/request-module'
-import AppLoader from '@/components/ui/AppLoader.vue'
+
 
 const modal = ref(false)
 const store = useRequestStore()
-const requests = computed(() => store.requestsList)
+const requests = computed(() => store.requestsList
+.filter(request => {
+  if (filter.value.name) {
+    return request.fio.includes(filter.value.name)
+  }
+  return request
+})
+.filter(request => {
+  if (filter.value.status) {
+    return request.status === filter.value.status 
+  }
+  return request
+})
+)
 const loading = ref(false)
+const filter = ref({})
+
 
 onMounted(async () => {
   loading.value = true
@@ -30,6 +47,7 @@ onMounted(async () => {
         создать
       </button>
     </template>
+    <RequestFilter v-model="filter" v-if="requests.length" />
     <RequestTable :requests="requests"></RequestTable>
 
     <Teleport to="body">

@@ -35,7 +35,7 @@
     </div>
     <div class="flex flex-col mb-6">
       <label for="status" class="mb-1 ml-2 italic">Статус</label>
-      <select v-model="status" id="status" class="border px-5 rounded-md outline-none'">
+      <select v-model="status" id="status" class="border px-5 rounded-md outline-none">
         <option value="done">завершен</option>
         <option value="cancelled">отменен</option>
         <option value="active">активен</option>
@@ -51,7 +51,6 @@
     </button>
   </form>
 </template>
-
 
 
 <script setup>

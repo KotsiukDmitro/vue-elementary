@@ -1,7 +1,7 @@
 <template>
   <nav class="flex py-3">
     <h3 class="ml-5 font-semibold text-red-500">Online Bank</h3>
-    <ul class="flex ml-auto">
+    <ul class="flex ml-auto mr-28">
       <li class="mr-5 hover:text-blue-600 hover:underline">
         <RouterLink to="/">Заявки</RouterLink>
       </li>
@@ -9,7 +9,7 @@
         <RouterLink to="/help">Помощь</RouterLink>
       </li>
       <li class="mr-5 hover:text-blue-600 hover:underline">
-        <a href="#">Сообщения</a>
+        <a href="#" @click.prevent="openSidebar">Сообщения</a>
       </li>
       <li class="mr-5 hover:text-blue-600 hover:underline">
         <a href="#" @click.prevent="logout">Выход</a>
@@ -21,15 +21,21 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { useAuthUserStore } from '@/stores/auth-module';
+import { useSidebar } from '@/stores/sidebar-module';
 
 
 const router = useRouter()
 const store = useAuthUserStore()
+const sidebarStore = useSidebar()
 
 
 const logout = () => {
   store.logout()
   router.push('/auth')
+}
+
+const openSidebar = () => {
+  sidebarStore.open()
 }
 </script>
 

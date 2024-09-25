@@ -50,6 +50,31 @@ export const useRequestStore = defineStore('request', {
                 this.setMessage(error.message, 'danger')
             }
         },
+        async loadById(id) {
+            try {
+                const { data } = await requestAxios.get(`/requests/${id}.json?auth=${this.token}`)
+                return data
+
+            } catch (error) {
+                this.setMessage(error.message, 'danger')
+            }
+        },
+        async remove(id) {
+            try {
+                await requestAxios.delete(`/requests/${id}.json?auth=${this.token}`)
+
+            } catch (error) {
+                this.setMessage(error.message, 'danger')
+            }
+        },
+        async update(request) {
+            try {
+                await requestAxios.put(`/requests/${request.id}.json?auth=${this.token}`, request)
+
+            } catch (error) {
+                this.setMessage(error.message, 'danger')
+            }
+        },
     },
 
     getters: {

@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 const props = defineProps({
     type: {
@@ -28,6 +28,11 @@ const textMap = {
     done: 'Завершен',
     pending: 'Выполняется'
 }
+
+watch(props, (val) => {
+    className.value = classesMap[val.type]
+    text.value = textMap[val.type]
+})
 
 const className = ref(classesMap[props.type])
 const text = ref(textMap[props.type])

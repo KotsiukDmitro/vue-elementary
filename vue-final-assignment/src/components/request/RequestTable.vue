@@ -19,7 +19,7 @@
         <td class="px-10">{{ currency(r.amount) }}</td>
         <td class="px-10"><AppStatus :type="r.status" /></td>
         <td class="px-10">
-            <RouterLink v-slot="navigate" custom to="{name: 'Request', params: {id: t.id}}">
+            <RouterLink v-slot="{navigate}" custom :to="{name: 'request', params: {id: r.id}}">
                 <button @click="navigate" class="border outline-none rounded-xl px-3 text-green-400">Open</button>
             </RouterLink>
         </td>
