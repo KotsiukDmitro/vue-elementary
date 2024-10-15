@@ -41,6 +41,9 @@ export const useAuthUserStore = defineStore('authUser', {
 
         setMessage(mes) {
             this.message = mes
+            setTimeout(() => {
+                this.clearMessage()
+            }, 5000)
             return {
                 value: mes,
                 type: 'danger'
@@ -51,13 +54,6 @@ export const useAuthUserStore = defineStore('authUser', {
             this.message = null
         },
 
-        setMessageClose(mes) {
-            this.setMessage(mes)
-            setTimeout(() => {
-                this.clearMessage()
-            }, 5000)
-
-        }
     },
     getters: {
         tokenUser(state) {

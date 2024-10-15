@@ -10,6 +10,4 @@
 <script setup>
 import AppMessage from '@/components/ui/AppMessage.vue';
 
-
-
 </script>

@@ -12,7 +12,7 @@
 
 <script setup>
 
-defineProps({
+const props = defineProps({
     title: {
         type: String,
         required: true
@@ -23,7 +23,6 @@ defineProps({
     }
 })
 
-
-document.title = `title| Клон Банка`
+document.title = `${props.title}| Клон Банка`
 </script>
 ,
