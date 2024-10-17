@@ -17,7 +17,9 @@ export const useRequestStore = defineStore('request', {
             try {
                 const { data } = await requestAxios.post(`/requests.json?auth=${this.token}`, payload)
                 this.addRequest({ ...payload, id: data.name })
-                this.setMessage()
+                const message = 'Заявка успешно создана'
+                const type = 'primary'
+                this.setMessage(message, type)
 
             } catch (error) {
                 this.setMessage(error.message, 'danger')
@@ -26,12 +28,13 @@ export const useRequestStore = defineStore('request', {
 
         },
         setMessage(message, type) {
-            message = 'Заявка успешно создана'
-            type = 'primary'
+            // message = 'Заявка успешно создана'
+            // type = 'primary'
             return {
                 value: message,
                 type: type
             }
+
         },
         addRequest(request) {
             this.requests.push(request)
@@ -62,6 +65,9 @@ export const useRequestStore = defineStore('request', {
         async remove(id) {
             try {
                 await requestAxios.delete(`/requests/${id}.json?auth=${this.token}`)
+                const message = 'Заявка удалена'
+                const type = 'danger'
+                this.setMessage(message, type)
 
             } catch (error) {
                 this.setMessage(error.message, 'danger')
@@ -70,6 +76,9 @@ export const useRequestStore = defineStore('request', {
         async update(request) {
             try {
                 await requestAxios.put(`/requests/${request.id}.json?auth=${this.token}`, request)
+                const message = 'Заявка успешно обновлена'
+                const type = 'primary'
+                this.setMessage(message, type)
 
             } catch (error) {
                 this.setMessage(error.message, 'danger')
